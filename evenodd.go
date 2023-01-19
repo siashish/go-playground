@@ -6,24 +6,23 @@ import (
 	"sync"
 )
 
-var w sync.WaitGroup
-
 func main() {
+	var w sync.WaitGroup
 
 	w.Add(2)
-	go Even()
-	go Odd()
+	go Even(&w)
+	go Odd(&w)
 	w.Wait()
 	fmt.Println("main finished")
 
 }
 
-func Even() {
+func Even(w *sync.WaitGroup) {
 	defer w.Done()
 	fmt.Println("even")
 }
 
-func Odd() {
+func Odd(w *sync.WaitGroup) {
 	defer w.Done()
 	fmt.Println("Odd")
 }
