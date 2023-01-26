@@ -9,8 +9,9 @@ import (
 func main() {
 	var w sync.WaitGroup
 
-	w.Add(2)
+	w.Add(3)
 	go Even(&w)
+	go Odd(&w)
 	go Odd(&w)
 	w.Wait()
 	fmt.Println("main finished")
