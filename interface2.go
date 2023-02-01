@@ -16,13 +16,14 @@ func TypeCheck(a interface{}) {
 	case bool:
 		fmt.Println("Type: bool Value: ", a.(bool))
 	case complex128:
-		fmt.Println("Type: complex128 Value: ", a.(complex128))
+		fmt.Println("Type: complex128 Value: ", a.(complex128s))
 	default:
 		fmt.Println("Type: Unknown Value: ", a)
 	}
 }
 
 func main() {
+	// inside main function
 	TypeCheck("Hello Folks! Welcome to Knoldus blogs")
 	TypeCheck(67)
 	TypeCheck(true)
